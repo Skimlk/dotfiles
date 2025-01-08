@@ -6,11 +6,12 @@ cd "$script_path" || exit 1
 
 # Define files array with format: "{Filename} {Application Dir} {Dotfiles Dir}"
 files=(
-	"i3status.conf	/etc/				./i3/"
-	"config 		$HOME/.config/i3/	./i3/"
-	".bashrc 		$HOME/				./"
-	".vimrc			$HOME/				./"
-	".xbindkeysrc	$HOME/				./"
+	"i3status.conf		/etc/						./i3/"
+	"config 			$HOME/.config/i3/			./i3/"
+	".bashrc 			$HOME/						./"
+	".vimrc				$HOME/						./"
+	".xbindkeysrc		$HOME/						./"
+	"lxterminal.conf	$HOME/.config/lxterminal/	./"
 )
 
 pull() {
