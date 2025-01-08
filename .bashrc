@@ -112,4 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-primarydisplay="$(xrandr -q | grep 'primary' | awk '{print $1}')"
+#Autostart X at login
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi

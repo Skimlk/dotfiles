@@ -4,12 +4,13 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 cd "$script_path" || exit 1
 
-# Define files array with format: {Filename} {Application Dir} {Dotfiles Dir}
+# Define files array with format: "{Filename} {Application Dir} {Dotfiles Dir}"
 files=(
 	"i3status.conf	/etc/				./i3/"
 	"config 		$HOME/.config/i3/	./i3/"
 	".bashrc 		$HOME/				./"
 	".vimrc			$HOME/				./"
+	".xbindkeysrc	$HOME/				./"
 )
 
 pull() {
