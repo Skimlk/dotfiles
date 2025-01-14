@@ -30,7 +30,7 @@ font pango:ComicCode 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec lxterminal -e "fortune | cowsay && bash"
+bindsym $mod+Return exec lxterminal -e "fortune -s | cowsay && bash"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -169,16 +169,12 @@ bindsym $mod+r mode "resize"
 		bindsym $mod+Shift+x exec i3lock -e -u -c 000000
 
 	#Launch on startup
-		#https://unix.stackexchange.com/questions/24330/how-can-i-turn-off-middle-mouse-button-paste-functionality-in-all-programs/277488#277488
 		exec xbindkeys
-		#exec xinput set-prop "pointer:Razer Razer Viper 8KHz" "libinput Accel Profile Enabled" 0 1
-		#exec xinput set-prop "pointer:Razer Razer Viper 8KHz" "libinput Accel Speed" -.3
 		exec /mnt/2tb/Documents/Rice/scripts/fixmouse.sh
-		#exec /mnt/2tb/Programs/./mousespeed.sh .75
 		exec quiterss
 		exec xwallpaper --tile /mnt/2tb/Documents/Rice/wallpapers/126.png 
 		exec flameshot
-	        exec xscreensaver
+	    exec xscreensaver
 		#exec --no-startup-id volti
 		#exec --no-startup-id blueman-applet
 		#exec --no-startup-id wicd-gtk		
@@ -187,7 +183,7 @@ bindsym $mod+r mode "resize"
 	#Display
 		#Position of monitors
 			exec --no-startup-id xrandr --output DP-0 --primary --right-of HDMI-0
-		
+
 		#Brightness and bluelight
 			bindsym $mod+Shift+n exec xsct 3000
 			bindsym $mod+Shift+m exec xsct 0
@@ -198,40 +194,10 @@ bindsym $mod+r mode "resize"
 	    #More Vibrance
 			 #exec nvidia-settings -a DigitalVibrance=500
 
-	#Border colors
-		#client.focused          #333333 #5f676a #ffffff #d3d3d3
-		#client.focused_inactive        #000000 #5f676a #000000 
-	
 	#Other
 		for_window [title="Ruffle"] floating enable
-	
-	#Experimental
-		#Floating window mode
-        
-        for_window [class="^.*"] border pixel 4
-		for_window [floating] border normal
-        #for_window [class="[.]*"] floating enabled
-
-		#set_from_resource $var disabled
-		#bindsym $mod+Shift+f set $var enabled
-
-		#Bookmarks	
-		#bindsym $mod+b exec xdotool type $(sed -n '1~2!p' ~/.config/i3/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)
-		#bindsym $mod+Shift+z exec ~/.config/i3/./createbookmark.sh
-		
-		#Mouse accel	
-		# exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.3
 		bindsym $mod+Shift+f exec xdotool click --repeat 100 --delay 18 1
 
-		#Key binds
-		#exec setxkbmap -option ctrl:nocaps
-		#exec keycode 111 = 
-		#exec keycode 113 = 
-		#exec keycode 114 = 
-		#exec keycode 116 = 
-		#exec keycode 112 = 
-		#exec keycode 117 =				
-	
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {

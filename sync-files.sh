@@ -4,14 +4,16 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 cd "$script_path" || exit 1
 
+USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
+
 # Define files array with format: "{Filename} {Application Dir} {Dotfiles Dir}"
 files=(
-	"i3status.conf		/etc/						./i3/"
-	"config 			$HOME/.config/i3/			./i3/"
-	".bashrc 			$HOME/						./"
-	".vimrc				$HOME/						./"
-	".xbindkeysrc		$HOME/						./"
-	"lxterminal.conf	$HOME/.config/lxterminal/	./"
+	"i3status.conf		/etc/							./i3/"
+	"config 			$USER_HOME/.config/i3/			./i3/"
+	".bashrc 			$USER_HOME/						./"
+	".vimrc				$USER_HOME/						./"
+	".xbindkeysrc		$USER_HOME/						./"
+	"lxterminal.conf	$USER_HOME/.config/lxterminal/	./"
 )
 
 pull() {
@@ -19,6 +21,10 @@ pull() {
 	dest=$(echo "$file" | awk '{print $3}')
 }
 push() {
+	if [ "$EUID" -ne 0 ]; then
+		echo "Error: You must have root privileges to push files."
+		exit 1
+	fi
 	src=$(echo "$file" | awk '{print $3 $1}')
 	dest=$(echo "$file" | awk '{print $2}')
 }
