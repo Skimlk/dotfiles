@@ -179,6 +179,7 @@ bindsym $mod+r mode "resize"
 		#exec --no-startup-id blueman-applet
 		#exec --no-startup-id wicd-gtk		
 		exec signal-desktop --use-tray-icon --no-sandbox %U
+		exec /mnt/2tb/Programs/Telegram/Telegram
 
 	#Display
 		#Position of monitors
