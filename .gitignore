@@ -1,0 +1,3 @@
+autoricer/*
+!autoricer/customsetup.sh
+!autoricer/packagelist.yaml
