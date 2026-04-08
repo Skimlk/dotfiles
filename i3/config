@@ -167,33 +167,23 @@ bindsym $mod+r mode "resize"
 		bindsym $mod+n exec nautilus
 		bindcode 107 exec flameshot gui
 		bindsym $mod+Shift+x exec i3lock -e -u -c 000000
+		bindsym $mod+p exec firefox-esr
 
 	#Launch on startup
+		exec cbatticon -i symbolic
 		exec xbindkeys
-		exec /mnt/2tb/Documents/Rice/scripts/fixmouse.sh
 		exec quiterss
-		exec xwallpaper --tile /mnt/2tb/Documents/Rice/wallpapers/126.png 
+		exec xwallpaper --tile ~/Pictures/wallpapers/forest.png 
 		exec flameshot
 	    exec xscreensaver
 		#exec --no-startup-id volti
-		#exec --no-startup-id blueman-applet
-		#exec --no-startup-id wicd-gtk		
+		exec --no-startup-id blueman-applet
 		exec signal-desktop --use-tray-icon --no-sandbox %U
-		exec /mnt/2tb/Programs/Telegram/Telegram
+		exec ~/Programs/Telegram/Telegram
 
 	#Display
-		#Position of monitors
-			exec --no-startup-id xrandr --output DP-0 --primary --right-of HDMI-0
-
-		#Brightness and bluelight
-			bindsym $mod+Shift+n exec xsct 3000
-			bindsym $mod+Shift+m exec xsct 0
-
-		#Black and white
-			#exec nvidia-settings -a -1024
-
-	    #More Vibrance
-			 #exec nvidia-settings -a DigitalVibrance=500
+		bindsym $mod+Shift+n exec xsct 3000
+		bindsym $mod+Shift+m exec xsct 0
 
 	#Other
 		for_window [title="Ruffle"] floating enable
