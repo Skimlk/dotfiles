@@ -8,7 +8,8 @@ USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
 
 # Define files array with format: "{Application Name} {Filename} {Application Dir} {Dotfiles Dir}"
 files=(
-	"i3			i3status.conf		/etc/					.		./i3/"
+	"i3			i3status.conf		$USER_HOME/.config/i3/			./i3/"
+	"i3			weather_i3status.sh $USER_HOME/.config/i3/			./i3/"
 	"i3			config 				$USER_HOME/.config/i3/			./i3/"
 	"bash		.bashrc 			$USER_HOME/						./"
 	"vim		.vimrc				$USER_HOME/						./"
@@ -18,7 +19,7 @@ files=(
 
 pull() {
 	src=$(echo "$file" | awk '{print $3 $2}')
-	dest=$(echo "$file" | awk '{print $4}')
+	dest=$(echo "$file" | awk '{print $4 $2}')
 }
 
 push() {
@@ -27,7 +28,7 @@ push() {
 		exit 1
 	fi
 	src=$(echo "$file" | awk '{print $4 $2}')
-	dest=$(echo "$file" | awk '{print $3}')
+	dest=$(echo "$file" | awk '{print $3 $2}')
 }
 
 copy_files() {
@@ -40,7 +41,7 @@ copy_files() {
 
 operate() {
 	$operation
-	if [ -n "$(diff $src $dest)" ]; then
+	if [ ! -e "$dest" ] || [ -n "$(diff "$src" "$dest")" ]; then
 		copy_files
 	else
 		echo "No change to '$src'"
