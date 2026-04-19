@@ -172,18 +172,31 @@ bindsym $mod+r mode "resize"
 	#Launch on startup
 		exec cbatticon -i symbolic
 		exec xbindkeys
+		exec /mnt/2tb/Documents/Rice/scripts/fixmouse.sh
 		exec quiterss
-		exec xwallpaper --tile ~/Pictures/wallpapers/forest.png 
+		exec xwallpaper --tile /home/skim/Pictures/wallpapers/forest.png 
 		exec flameshot
 	    exec xscreensaver
 		#exec --no-startup-id volti
 		exec --no-startup-id blueman-applet
+		#exec --no-startup-id wicd-gtk		
 		exec signal-desktop --use-tray-icon --no-sandbox %U
-		exec ~/Programs/Telegram/Telegram
+		exec /home/skim/Programs/Telegram/Telegram
 
 	#Display
-		bindsym $mod+Shift+n exec xsct 3000
-		bindsym $mod+Shift+m exec xsct 0
+		#Position of monitors
+			exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --right-of eDP --primary
+			exec --no-startup-id xrandr --output eDP --mode 1680x1050
+
+		#Brightness and bluelight
+			bindsym $mod+Shift+n exec xsct 3000
+			bindsym $mod+Shift+m exec xsct 0
+
+		#Black and white
+			#exec nvidia-settings -a -1024
+
+	    #More Vibrance
+			 #exec nvidia-settings -a DigitalVibrance=500
 
 	#Other
 		for_window [title="Ruffle"] floating enable
@@ -192,6 +205,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+	status_command /home/skim/.config/i3/weather_i3status.sh
 	tray_output primary
 }
