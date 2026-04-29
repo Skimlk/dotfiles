@@ -6,7 +6,7 @@ init() {
 
 	dotfiles="$(basename $_)" 
 	USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
-	chown -Rv ${SUDO_USER:-$USER}:${SUDO_USER:-$USER} $USER_HOME
+	umask 002
 
 	$syncfiles push bash
 }
