@@ -32,6 +32,7 @@ Main:
     - wine
     - flatpak
     - blueman
+	- mpv
 
 Laptop:
     - xbacklight

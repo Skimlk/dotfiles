@@ -76,5 +76,11 @@ configure_lxterminal() {
 	wget https://files.catbox.moe/p60y2w.otf -O $USER_HOME/.local/share/fonts/ComicCode-Regular.otf
 	fc-cache
 }
+configure_mpv() {
+	mkdir -p $USER_HOME/.config/mpv/scripts
+	cd $USER_HOME/.config/mpv/scripts
+	git clone https://github.com/Ajatt-Tools/videoclip.git
+	cd -
+}
 
 init
