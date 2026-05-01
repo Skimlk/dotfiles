@@ -8,13 +8,14 @@ USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
 
 # Define files array with format: "{Application Name} {Filename} {Application Dir} {Dotfiles Dir}"
 files=(
-	"i3			i3status.conf		$USER_HOME/.config/i3/			./i3/"
-	"i3			weather_i3status.sh $USER_HOME/.config/i3/			./i3/"
-	"i3			config 				$USER_HOME/.config/i3/			./i3/"
-	"bash		.bashrc 			$USER_HOME/						./"
-	"vim		.vimrc				$USER_HOME/						./"
-	"xbindkeys	.xbindkeysrc		$USER_HOME/						./"
-	"lxterminal	lxterminal.conf		$USER_HOME/.config/lxterminal/	./"
+	"i3			i3status.conf				$USER_HOME/.config/i3/			./i3/"
+	"i3			weather_i3status.sh			$USER_HOME/.config/i3/			./i3/"
+	"i3			move-cursor-to-focused.sh	$USER_HOME/.config/i3/			./i3/"
+	"i3			config 						$USER_HOME/.config/i3/			./i3/"
+	"bash		.bashrc 					$USER_HOME/						./"
+	"vim		.vimrc						$USER_HOME/						./"
+	"xbindkeys	.xbindkeysrc				$USER_HOME/						./"
+	"lxterminal	lxterminal.conf				$USER_HOME/.config/lxterminal/	./"
 )
 
 pull() {

@@ -43,16 +43,16 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h focus left; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+j focus down; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+k focus up; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+l focus right; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left focus left; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+Down focus down; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+Up focus up; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
+bindsym $mod+Right focus right; exec --no-startup-id ~/.config/i3/move-cursor-to-focused.sh
 
 # move focused window
 bindsym $mod+Shift+h move left
