@@ -13,8 +13,8 @@ init() {
 
 #Application Installations
 install_flatpak() {
-	install flatpak
-	flatpak remote-modify flathub --url=https://dl.flathub.org/repo/flathub.flatpakrepo
+	distro_install flatpak
+	flatpak remote-add --if-not-exists flathub https://flathub.org
 }
 install_signal() {
 	install wget
