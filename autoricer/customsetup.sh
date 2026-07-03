@@ -11,6 +11,8 @@ init() {
 	$syncfiles push bash
 }
 
+as_user() { sudo -u "$SUDO_USER" "$@"; }
+
 #Application Installations
 install_flatpak() {
 	distro_install flatpak
@@ -65,8 +67,8 @@ configure_i3() {
 	$syncfiles push i3
 	$syncfiles push xbindkeys
 
-	mkdir -p $USER_HOME/Pictures/wallpapers
-	wget https://files.catbox.moe/4qepc1.png -O $USER_HOME/Pictures/wallpapers/forest.png
+	as_user mkdir -p $USER_HOME/Pictures/wallpapers
+	as_user wget https://files.catbox.moe/4qepc1.png -O $USER_HOME/Pictures/wallpapers/forest.png
 }
 configure_vim() {
 	$syncfiles push vim
@@ -78,14 +80,14 @@ configure_obs() {
 configure_lxterminal() {
 	install fortunes fortune-mod fortunes-debian-hints cowsay
 	$syncfiles push lxterminal
-	mkdir -p $USER_HOME/.local/share/fonts/
-	wget https://files.catbox.moe/p60y2w.otf -O $USER_HOME/.local/share/fonts/ComicCode-Regular.otf
+	as_user mkdir -p $USER_HOME/.local/share/fonts/
+	as_user wget https://files.catbox.moe/p60y2w.otf -O $USER_HOME/.local/share/fonts/ComicCode-Regular.otf
 	fc-cache -f
 }
 configure_mpv() {
 	mkdir -p $USER_HOME/.config/mpv/scripts
 	cd $USER_HOME/.config/mpv/scripts
-	git clone https://github.com/Ajatt-Tools/videoclip.git
+	as_user git clone https://github.com/Ajatt-Tools/videoclip.git
 	cd -
 }
 
