@@ -21,6 +21,7 @@ files=(
 pull() {
 	src=$(echo "$file" | awk '{print $3 $2}')
 	dest=$(echo "$file" | awk '{print $4 $2}')
+	dest_dir=$(echo "$file" | awk '{print $4}')
 }
 
 push() {
@@ -30,13 +31,15 @@ push() {
 	fi
 	src=$(echo "$file" | awk '{print $4 $2}')
 	dest=$(echo "$file" | awk '{print $3 $2}')
+	dest_dir=$(echo "$file" | awk '{print $3}')
 }
 
 copy_files() {
-	if cp $src $dest; then
+	if mkdir -p $dest_dir && cp $src $dest; then
 		echo "Copied '$src' to '$dest'"
 	else
 		echo "Failed to copy '$src' to '$dest'"
+		rmdir $dest_dir > /dev/null 2>&1
 	fi
 }
 
