@@ -14,7 +14,7 @@ init() {
 #Application Installations
 install_flatpak() {
 	distro_install flatpak
-	flatpak remote-add --if-not-exists flathub https://flathub.org
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 install_signal() {
 	install wget
@@ -56,7 +56,7 @@ install_minecraft() {
 }
 install_srb2k() {
 	install_flatpak
-	flatpak install flathub org.srb2.SRB2Kart
+	flatpak install -y flathub org.srb2.SRB2Kart
 }
 
 #Application Configurations
