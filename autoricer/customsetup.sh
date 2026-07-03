@@ -74,7 +74,7 @@ configure_lxterminal() {
 	$syncfiles push lxterminal
 	mkdir -p $USER_HOME/.local/share/fonts/
 	wget https://files.catbox.moe/p60y2w.otf -O $USER_HOME/.local/share/fonts/ComicCode-Regular.otf
-	fc-cache
+	fc-cache -f
 }
 configure_mpv() {
 	mkdir -p $USER_HOME/.config/mpv/scripts
