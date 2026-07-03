@@ -7,12 +7,13 @@ fi
 
 # Clone autoricer into ./autoricer while maintaining customizations
 cd autoricer
-git status || 
-	git init &&
-	git remote add origin https://github.com/Skimlk/autoricer
+if [ ! -d .git ]; then
+    git init
+    git remote add origin https://github.com/Skimlk/autoricer
+fi
 
 git fetch || exit 1
-git checkout origin/main -ft
+git checkout -f main
 
 # Run autoricer
 chmod +x autoricer.sh
