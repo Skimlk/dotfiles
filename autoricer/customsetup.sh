@@ -12,6 +12,10 @@ init() {
 }
 
 #Application Installations
+install_flatpak() {
+	install flatpak
+	flatpak remote-modify flathub --url=https://dl.flathub.org/repo/flathub.flatpakrepo
+}
 install_signal() {
 	install wget
     # 1. Install our official public software signing key:
@@ -44,12 +48,14 @@ install_steam() {
 	{ print }' /bin/steam
 }
 install_minecraft() {
-	wget https://launcher.mojang.com/download/Minecraft.deb
-	dpkg --skip-same-version -i Minecraft.deb
-	rm Minecraft.deb
+    wget https://launcher.mojang.com/download/Minecraft.tar.gz
+    tar -xvf Minecraft.tar.gz
+    rm Minecraft.tar.gz
+    mv minecraft-launcher/minecraft-launcher /bin
+    rmdir minecraft-launcher
 }
 install_srb2k() {
-	install flatpak
+	install_flatpak
 	flatpak install flathub org.srb2.SRB2Kart
 }
 
