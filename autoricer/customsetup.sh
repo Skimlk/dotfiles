@@ -90,5 +90,9 @@ configure_mpv() {
 	as_user git clone https://github.com/Ajatt-Tools/videoclip.git
 	cd -
 }
+configure_firefox-esr() {
+	mkdir -p /etc/firefox/policies
+	$syncfiles push firefox
+}
 
 init

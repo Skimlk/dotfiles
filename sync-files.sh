@@ -16,6 +16,7 @@ files=(
 	"vim		.vimrc						$USER_HOME/						./"
 	"xbindkeys	.xbindkeysrc				$USER_HOME/						./"
 	"lxterminal	lxterminal.conf				$USER_HOME/.config/lxterminal/	./"
+	"firefox	policies.json				/etc/firefox/policies/			./firefox/"
 )
 
 pull() {
