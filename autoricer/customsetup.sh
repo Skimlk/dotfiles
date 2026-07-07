@@ -85,7 +85,7 @@ configure_lxterminal() {
 	fc-cache -f
 }
 configure_mpv() {
-	mkdir -p $USER_HOME/.config/mpv/scripts
+	as_user mkdir -p $USER_HOME/.config/mpv/scripts
 	cd $USER_HOME/.config/mpv/scripts
 	as_user git clone https://github.com/Ajatt-Tools/videoclip.git
 	cd -
